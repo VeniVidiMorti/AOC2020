@@ -1,6 +1,12 @@
-import { SumTo } from "./dayone/run";
+import { DayOne } from "./dayone/run";
 import { data } from "./dayone/data";
 
-const sumTo = new SumTo(data);
-console.info(`het resultaat is ${sumTo.sumTwo(2020)}`);
-console.info(`het tweede resultaat is ${sumTo.sumTree(2020)}`)
+import { DayTwo } from "./daytwo/run";
+
+// const sumTo = new DayOne(data);
+// console.info(`het resultaat is ${sumTo.sumTwo(2020)}`);
+// console.info(`het tweede resultaat is ${sumTo.sumTree(2020)}`)
+
+const dayTwo = new DayTwo();
+dayTwo.firstCount();
+dayTwo.secondCount();

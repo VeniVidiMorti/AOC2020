@@ -1,4 +1,4 @@
-export class SumTo {
+export class DayOne {
     constructor(public data: Array<number>) { }
 
     // de opdracht is in een lijst met nummers de nummers te vinden die opgeteld een bepaalde waarde hebben, het antwoord is dan het product van die nummers
