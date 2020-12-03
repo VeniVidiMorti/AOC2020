@@ -1,12 +1,14 @@
 import { DayOne } from "./dayone/run";
-import { data } from "./dayone/data";
-
 import { DayTwo } from "./daytwo/run";
-
-// const sumTo = new DayOne(data);
+import { DayTree } from "./daythree/run";
+// const sumTo = new DayOne();
 // console.info(`het resultaat is ${sumTo.sumTwo(2020)}`);
 // console.info(`het tweede resultaat is ${sumTo.sumTree(2020)}`)
 
-const dayTwo = new DayTwo();
-dayTwo.firstCount();
-dayTwo.secondCount();
+// const dayTwo = new DayTwo();
+// dayTwo.firstCount();
+// dayTwo.secondCount();
+
+const dayThree = new DayTree();
+dayThree.countTrees();
+dayThree.moreCounting();
