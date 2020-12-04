@@ -1,6 +1,8 @@
 import { DayOne } from "./dayone/run";
 import { DayTwo } from "./daytwo/run";
 import { DayTree } from "./daythree/run";
+import { DayFour } from "./dayfour/run";
+
 // const sumTo = new DayOne();
 // console.info(`het resultaat is ${sumTo.sumTwo(2020)}`);
 // console.info(`het tweede resultaat is ${sumTo.sumTree(2020)}`)
@@ -9,6 +11,9 @@ import { DayTree } from "./daythree/run";
 // dayTwo.firstCount();
 // dayTwo.secondCount();
 
-const dayThree = new DayTree();
-dayThree.countTrees();
-dayThree.moreCounting();
+// const dayThree = new DayTree();
+// dayThree.countTrees();
+// dayThree.moreCounting();
+
+const dayFour = new DayFour();
+dayFour.checkPassportKeys();
