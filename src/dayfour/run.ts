@@ -32,9 +32,9 @@ const PassportChecks = {
         }
         return (heightNum >= 59 && heightNum <= 76)
     },
-    hcl: (hairColour: string) => { return hairColour.length === 7 && !!hairColour.match(/#[0-9a-f]{6}/) },
+    hcl: (hairColour: string) => { return !!hairColour.match(/^#[0-9a-f]{6}$/) },
     ecl: (eyeColour: string) => { return allowedEyeColours.includes(eyeColour) },
-    pid: (passportNumber: string) => { return passportNumber.length === 9 && !!passportNumber.match(/[0-9]{9}/) },
+    pid: (passportNumber: string) => { return !!passportNumber.match(/^[0-9]{9}$/) },
     cid: (cid: string) => { return true }
 }
 
@@ -46,6 +46,7 @@ export class DayFour {
         this.parseData().forEach(passport => {
             const missingFields = passportFields.filter(field => !Object.keys(passport).includes(field));
             if (!missingFields.length || missingFields.toString() === "cid") {
+                // correct++; // voor deel 1
                 correct += this.checkPassportValues(passport) === undefined ? 1 : 0;
                 // } else {
                 //     wrong++;
