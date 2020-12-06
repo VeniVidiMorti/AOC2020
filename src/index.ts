@@ -3,6 +3,7 @@ import { DayTwo } from "./daytwo/run";
 import { DayTree } from "./daythree/run";
 import { DayFour } from "./dayfour/run";
 import { DayFive } from "./dayfive/run";
+import { DaySix } from "./daysix/run";
 
 // const sumTo = new DayOne();
 // console.info(`het resultaat is ${sumTo.sumTwo(2020)}`);
@@ -19,5 +20,8 @@ import { DayFive } from "./dayfive/run";
 // const dayFour = new DayFour();
 // dayFour.checkPassportKeys();
 
-const dayFive = new DayFive();
-dayFive.getSeats();
+// const dayFive = new DayFive();
+// dayFive.getSeats();
+
+const daySix = new DaySix();
+daySix.countAnswers2();
