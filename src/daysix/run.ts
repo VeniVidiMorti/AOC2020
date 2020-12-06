@@ -33,7 +33,9 @@ export class DaySix {
             let overlap = new Array<string>();
             answers.map((answer, index) => {
                 overlap = answer.split("").filter(answ => {
-                    if (index === 0) { return true }
+                    if (index === 0) {
+                        return true
+                    }
                     return overlap.includes(answ);
                 });
             });
