@@ -12,7 +12,7 @@ dotted black bags contain no other bags.`;
 
 export class DaySeven {
 
-    private getBags(searchBag: string | undefined): Array<string> {
+    private getBagsPartOne(searchBag: string | undefined): Array<string> {
         // console.info(`zoeken naar ${searchBag}`);
         if (!searchBag) {
             return [];
@@ -36,24 +36,62 @@ export class DaySeven {
         return lines;
     }
 
+    private getBagsPartTwo(searchBag: string | undefined): Array<{ quantity: string, type: string }> {
+        // console.info(`zoeken naar ${searchBag}`);
+        if (!searchBag) {
+            return [];
+        }
+        const regex = new RegExp(`^${searchBag}.*[0-9]+`);
+        const lines = testdata
+            .split("\n")
+            .filter(line => regex.test(line))
+            .map(line => {
+                // const dit = line.split("contain ")[1].split(",") || "";
+                const bags = line.split("contain ")[1].split(",");
+                const ret = bags.map(bag => {
+                    return {
+                        quantity: bag.trim().split(" ")[0].trim(),
+                        type: bag.trim().split(" ").slice(1, 3).join(" ")
+                    };
+                });
+                return ret;
+            })//.concat()
+
+        const ret = new Array<{ quantity: string, type: string }>();
+        lines.forEach(line => {
+            ret.push(...line);
+        });
+        console.info(`regels is ${JSON.stringify(ret, undefined, 2)}`);
+        return ret;
+    }
+
     countBags() {
-        // console.info(`${"vibrant plum bags contain 5 faded blue bags, 6 dotted blacks bags".match(/contain.*\sdotted black\s/)}`);
-        let searchBags = ["shiny gold"];
-        const set = new Set<string>();
-        set.add("shiny gold");
-        let bagCounter = 0;
-        // while (searchBags.length) {
-        //     const newBags = this.getBags(searchBags.shift());
-        //     bagCounter += newBags.length;
-        //     searchBags.push(...newBags);
-        // }
-        for (const searchBag of set) {
+        const setOne = new Set<string>();
+        setOne.add("shiny gold");
+        for (const searchBag of setOne) {
             // console.info(`zoektas = ${searchBag}`);
-            this.getBags(searchBag).forEach(newBag => {
-                set.add(newBag);
+            this.getBagsPartOne(searchBag).forEach(newBag => {
+                setOne.add(newBag);
             });
         }
-        console.info(`het aantal tassen is ${set.size - 1}`);
+        console.info(`het aantal tassen is ${setOne.size - 1}`);
+    }
+
+    secondCOunt() {
+        // werkt niet en ik heb er geen zin meer in   
+        const setTwo = new Set<{ quantity: string, type: string }>();
+        setTwo.add({ quantity: "1", type: "shiny gold" });
+        let totalBags = 0;
+        for (const searchBag of setTwo) {
+            // console.info(`zoektas = ${searchBag}`);
+            this.getBagsPartTwo(searchBag.type).forEach(newBag => {
+                console.info(`newbag is ${JSON.stringify(newBag)}`);
+                if (newBag) {
+                    totalBags += (+newBag.quantity * +searchBag.quantity);
+                    setTwo.add(newBag);
+                }
+            });
+        }
     }
 
 }
