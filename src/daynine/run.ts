@@ -83,6 +83,7 @@ export class DayNine {
         sumResult.list.sort((a, b) => a - b);
         console.info(`de som is ${JSON.stringify(sumResult)}`);
         // laatste nummer via een tussenstap, omdat pop zegt dat het resultaat undefined kan zijn (wat in deze situatie nooit zal voorkomen, maar goed)
+        // Math.min(...sumResult.list); en Math.max had ook gekund, geen idee wat sneller is wanneer de lijst heel lang wordt, ik denk sorteren, want dat gaat de lijst één keer af?
         const last = sumResult.list.pop() || 0;
         const weakness = sumResult.list[0] + last;
         console.info(`de zwakheid is ${weakness}`);
