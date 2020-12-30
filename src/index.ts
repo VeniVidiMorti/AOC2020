@@ -1,4 +1,4 @@
-import { DayEight } from "./dayeight/run";
+import { DayNine } from "./daynine/run";
 
 // const sumTo = new DayOne();
 // console.info(`het resultaat is ${sumTo.sumTwo(2020)}`);
@@ -25,6 +25,10 @@ import { DayEight } from "./dayeight/run";
 // const daySeven = new DaySeven();
 // daySeven.countBags();
 
-const dayEight = new DayEight();
-dayEight.runProgram();
-dayEight.fixProgram();
+// const dayEight = new DayEight();
+// dayEight.runProgram();
+// dayEight.fixProgram();
+
+const dayNine = new DayNine();
+dayNine.findInvalid();
+dayNine.findWeakness();
