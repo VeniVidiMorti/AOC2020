@@ -48,7 +48,7 @@ export class DayNine {
     private getSum(start: number, target: number) {
         let sum = 0;
         const list = new Array<number>();
-        const begin = start;
+        // const begin = start;
         while (sum < target) {
             sum += this.numbersList[start];
             list.push(this.numbersList[start])
